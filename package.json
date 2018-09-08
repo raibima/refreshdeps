@@ -1,6 +1,6 @@
 {
   "name": "refreshdeps",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Check for outdated packages in your JS project.",
   "main": "index.js",
   "bin": {
