@@ -21,6 +21,7 @@ $ refreshdeps --help
   Options:
     --config, -c <path>   Path to refreshdeps config file
     --json                Use JSON output
+    --verbose, -v         Verbose output
     --help                Prints help
     --version             Prints current version
 
@@ -60,7 +61,10 @@ module.exports = {
   // Config passed to the parser (@babel/parser).
   // See: https://babeljs.io/docs/en/next/babel-parser.html#options
   //
-  // default: {}
+  // default: {
+  //   sourceType: 'module',
+  //   plugins: []
+  // }
   parserConfig: {
     sourceType: 'module',
     plugins: ['jsx', 'flow'],

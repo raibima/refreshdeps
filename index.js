@@ -11,6 +11,7 @@ Usage
 Options:
   --config, -c <path>   Path to refreshdeps config file
   --json                Use JSON output
+  --verbose, -v         Verbose output
   --help                Prints help
   --version             Prints current version
 
@@ -30,6 +31,11 @@ const config = {
       type: 'boolean',
       default: false,
     },
+    verbose: {
+      type: 'boolean',
+      alias: 'v',
+      default: false,
+    },
   },
 };
 
@@ -42,6 +48,7 @@ const programConfig = {
   parserConfig: {},
   pkg: './package.json',
   json: cli.flags.json,
+  verbose: cli.flags.verbose,
 };
 if (configPath) {
   const absoluteConfigPath = path.resolve('./', configPath);
@@ -50,14 +57,22 @@ if (configPath) {
 } else {
   // check for implicit config file
   const implicitPath = './rd.config.js';
-  const stat = fs.statSync(implicitPath);
-  if (stat.isFile()) {
-    const configFile = require(path.resolve(implicitPath));
-    Object.assign(programConfig, configFile);
+  try {
+    const stat = fs.statSync(implicitPath);
+    if (stat.isFile()) {
+      const configFile = require(path.resolve(implicitPath));
+      Object.assign(programConfig, configFile);
+    }
+  } catch (err) {
+    // no-op
   }
 }
 
 if (!cli.input[0]) {
+  console.error(
+    '\x1b[31m%s\x1b[0m',
+    'Unable to parse target directory. Did you forget to specify the path?'
+  );
   console.error(helpText);
   process.exit(0);
 }
