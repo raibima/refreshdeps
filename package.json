@@ -1,0 +1,38 @@
+{
+  "name": "refreshdeps",
+  "version": "0.1.0",
+  "description": "Check for outdated packages in your JS project.",
+  "main": "index.js",
+  "bin": {
+    "refreshdeps": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raibima/refreshdeps.git"
+  },
+  "keywords": [
+    "node",
+    "dependencies",
+    "utility",
+    "outdated"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raibima/refreshdeps/issues"
+  },
+  "homepage": "https://github.com/raibima/refreshdeps#readme",
+  "dependencies": {
+    "@babel/parser": "^7.0.0",
+    "@babel/traverse": "^7.0.0",
+    "axios": "^0.18.0",
+    "easy-table": "^1.1.1",
+    "globby": "^8.0.1",
+    "meow": "^5.0.0",
+    "ora": "^3.0.0",
+    "semver": "^5.5.1"
+  }
+}
