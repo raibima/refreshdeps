@@ -2,6 +2,8 @@
 
 > A CLI utility that helps identify outdated dependencies in your JS project.
 
+:warning: Alpha software, expect breaking changes on minor releases.
+
 ## Install
 
 ```
